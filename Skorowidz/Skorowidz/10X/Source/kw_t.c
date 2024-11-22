@@ -6,15 +6,11 @@
 //
 #include <stdlib.h>
 #include <stdio.h>
-#define MAX_LINE 1000       //zakładamy, że słowo nie występuje więcej niż w 1000 linijek;
+#include <string.h>
+#include "kw_t.h"
 
-typedef struct KeyWord_t {
-    char* keyword;          //słowo które podał urzytkownik; te którego szukał;
-    int* lines;             //numery linii które te słowo zawierają;
-    int numberOfApperance;  //ile razy te słowo występuje;
-}kw_t;
 
-kw_t* initKeyWord(char* keyword){           //funkcja do inicjowania nowego słowa; Tworzy nowe słowo gdzie lines = NULL i numberOfApperance = 0;
+kw_t* keyWordInit(const char* keyword){     //funkcja do inicjowania nowego słowa; Tworzy nowe słowo gdzie lines = NULL i numberOfApperance = 0;
     
     if(keyword == NULL){                    //sprawdzamy czy nowy keyword nie jest pusty
         fprintf(stderr,"ERROR: New keyword is empty string!");
@@ -29,23 +25,41 @@ kw_t* initKeyWord(char* keyword){           //funkcja do inicjowania nowego sło
     }
     
     
-    kw->keyword = keyword;
+    kw->keyword = strdup(keyword);                //unikamy sytuacji gdzie w main zostanie wywołane free(keyword) i stracimy ten string; Działa podobnie do malloca wiec tez pamietac o free_kw();
+    if(strcmp(kw->keyword, keyword)!=0){
+        fprintf(stderr,"ERROR: While coping keyword to new keyword->keyword: \"%s\"\n",keyword);
+        free(kw->keyword);
+        free(kw);
+        return NULL;
+    }
+    
     kw->numberOfApperance=0;
     
     
     kw->lines=(int*)malloc(MAX_LINE * sizeof(int));     //pamiętać o free_kw() przy inicjowaniu !!!;
     if(kw->lines == NULL){                              //malloc się może nie udać;
         fprintf(stderr,"ERROR: While allocating memory to new keyword->lines: \"%s\"\n",keyword);
+        free(kw->keyword);
+        free(kw);
         return NULL;
     }
-    
     
     return kw; // zwracamy wskaźnik na nowy KeyWord jeśli wszystko git;
 }
 
-void free_kw(kw_t* kw){
-    if(kw == NULL){                    //sprawdzamy czy keyword nie jest pusty;
-        fprintf(stderr,"ERROR: Cannot free empty kw_t!");
-        return NULL;
+void freeKw(kw_t** kw){ //funkcja zwalniająca pamięć po strukturze keyWord; przyjmuje wskaźnik na wskaźnik na strunturę żeby móc operować na prawdziwych zmiennych w pamięci;
+    if(kw == NULL || *kw == NULL){
+        fprintf(stderr, "ERROR: Cannot free empty kw_t");
     }
+    free((*kw)->keyword);
+    (*kw)->keyword = NULL;
+    
+    free((*kw)->lines);
+    (*kw)->lines = NULL;
+    
+    (*kw)->numberOfApperance = 0;
+    
+    free(*kw);
+    (*kw) = NULL;
 }
+
