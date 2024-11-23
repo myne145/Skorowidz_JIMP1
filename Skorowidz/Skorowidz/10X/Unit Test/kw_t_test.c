@@ -24,11 +24,21 @@ int main(void){
     
     
     
-    freeKw(&kw1);
-    
-    int test4 = kw1 == NULL                         ? 1 : 0; //sprawdza pamięć jest odpowiednio zwolniona;
+    addNewLineToKw(kw1,1);
+    addNewLineToKw(kw1,2);
+    addNewLineToKw(kw1,1);
+
+    int test4 = kw1->numberOfApperance == 3 && kw1->linesSize == 2 && kw1->lines[0] == 1 && kw1->lines[1] == 2 && kw1->lines[2] == 0 ? 1 : 0;
     
     print_test(test4, "test4");
+    
+    
+    
+    freeKw(&kw1);
+    
+    int test5 = kw1 == NULL                         ? 1 : 0; //sprawdza pamięć jest odpowiednio zwolniona;
+    
+    print_test(test5, "test5");
     
     
     
