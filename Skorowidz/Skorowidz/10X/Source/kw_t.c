@@ -83,7 +83,7 @@ void addNewLineToKw(kw_t* kw,int newline){ //funckja dodająca do konretnego Key
         kw->lines[currentElement] = newline;
         kw->linesSize++;
         kw->numberOfApperance++;
-    }else{                  //jeśli jest to zwiększa tylko ilość występowania noa
+    }else{                  //jeśli jest to zwiększa tylko ilość występowania noa;
         kw->numberOfApperance++;
     }
 }
