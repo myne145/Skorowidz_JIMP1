@@ -7,7 +7,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
-#include "kw_t.h"
+#include "../Headers/kw_t.h"
 
 
 kw_t* keyWordInit(const char* keyword){     //funkcja do inicjowania nowego słowa; Tworzy nowe słowo gdzie lines = NULL i numberOfApperance = 0;

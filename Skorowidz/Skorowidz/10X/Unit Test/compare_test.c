@@ -5,8 +5,8 @@
 //  Created by Oskar Przybylski on 22/11/2024.
 //
 #include <stdio.h>
-#include "compare.h"
-#include "test.h"
+#include "../Headers/compare.h"
+#include "../Headers/test.h"
 
 int main(void){
     kw_t* kw1 = keyWordInit("k1");
