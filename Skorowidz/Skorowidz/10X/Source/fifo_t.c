@@ -74,3 +74,19 @@ void* pop(fifo_t* *fifo) {
 
     return val;
 }
+
+void* find(fifo_t* fifo, void* pattern) {
+    if(fifo == NULL) {
+        fprintf(stderr, "Nie można znaleźć wartości - niezaincjalizowana zmienna fifo.\n");
+        return NULL;
+    }
+
+    while(fifo->next != NULL) {
+        if(fifo->currentValue == pattern) {
+            return fifo->currentValue;
+        }
+
+        fifo = fifo->next;
+    }
+    return NULL;
+}

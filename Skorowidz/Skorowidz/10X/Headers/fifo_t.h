@@ -11,15 +11,15 @@ typedef struct fifo_t {
 } fifo_t;
 
 /**
- * zamienia wskaźnik do fifo na fifo->next
- * @param fifo wskaźnik do wskaźnika do fifo
+ * usuwa pierwszy element z kolejki
+ * @param fifo wskaźnik do wskaźnika na fifo
  * @return wartość zdjętą z fifo
  */
 void* pop(fifo_t* *fifo);
 
 /**
- *
- * @param fifo
+ * dodaje element do kolejki
+ * @param fifo kolejka do której dodaje element
  * @param element element który chcemy wrzucić do fifo
  * @return 1 jeśli  udało się wrzucić wartość, 0 jeśli nie
  */
@@ -27,17 +27,25 @@ int push(fifo_t* fifo, void* element);
 
 
 /**
- *
- * @param fifo
+ * liczy długość fifo
+ * @param fifo kolejka dla której liczy długość
  * @return długość fifo
  */
 int length(fifo_t* fifo);
 
 /**
- *
+ * inicjalizuje kolejkę fifo
  * @param fifo do zaincjalizowania
- * @param value wartość
+ * @param value wartość początkowa
  */
 fifo_t* init(void* value);
+
+/**
+ * wyszukuje DOKŁADNĄ wartość w kolejce
+ * @param fifo do przeszukania
+ * @param pattern do znalezienia
+ * @return wskaźnik do elementu, jeśli nie ma takiego to NULL
+ */
+void* find(fifo_t* fifo, void* pattern);
 
 #endif //SKOROWIDZ_JIMP1_FIFO_T_H

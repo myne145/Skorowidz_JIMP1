@@ -7,6 +7,11 @@ int main() {
     fifo_t* fifo = init("asasddasdsa");
 
     push(fifo, "1");
+    push(fifo, "asd");
+    push(fifo, "def");
+
+    void* foundElem = find(fifo, "asd");
+    printf("%p\n", foundElem);
 //    push(fifo, "1");
 //    push(fifo, "2");
 //    push(fifo, "3");
