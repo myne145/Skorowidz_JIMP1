@@ -21,8 +21,9 @@ void* pop(fifo_t* *fifo);
  *
  * @param fifo
  * @param element element który chcemy wrzucić do fifo
+ * @return 1 jeśli  udało się wrzucić wartość, 0 jeśli nie
  */
-void push(fifo_t* fifo, void* element);
+int push(fifo_t* fifo, void* element);
 
 
 /**

@@ -4,13 +4,14 @@
 
 
 int main() {
-    fifo_t* fifo = init("test");
+    fifo_t* fifo = init("asasddasdsa");
 
     push(fifo, "1");
-    push(fifo, "2");
-    push(fifo, "3");
-    push(fifo, "4");
-    push(fifo, "5");
+//    push(fifo, "1");
+//    push(fifo, "2");
+//    push(fifo, "3");
+//    push(fifo, "4");
+//    push(fifo, "5");
 
 
 //    while(fifo->next != NULL) {
@@ -19,15 +20,19 @@ int main() {
 //        fifo = fifo->next;
 //    }
 //    printf("\n");
-    char* str = fifo->currentValue;
-    printf("Wartość początkowa:\t%s\n", str);
-    printf("Długość:\t%d\n\n", length(fifo));
+//    char* str = fifo->currentValue;
+//    printf("Wartość początkowa:\t%s\n", str);
+//    printf("Długość:\t%d\n\n", length(NULL));
+//    pop(NULL);
+//    pop(&fifo);
+//    pop(&fifo);
+//    printf("Długość:\t%d\n\n", length(fifo));
 
-    char* removedValue = pop(&fifo);
-    printf("Zdjeta wartosc:\t%s\n", removedValue);
-
-    str = (char*) fifo->currentValue;
-    printf("Wartosc początkowa po zdjęciu:\t%s\n", str);
-    printf("Długość po zdjęciu:\t%d", length(fifo));
+//    char* removedValue = pop(&fifo);
+//    printf("Zdjeta wartosc:\t%s\n", removedValue);
+//
+//    str = (char*) fifo->currentValue;
+//    printf("Wartosc początkowa po zdjęciu:\t%s\n", str);
+//    printf("Długość po zdjęciu:\t%d", length(fifo));
 
 }
