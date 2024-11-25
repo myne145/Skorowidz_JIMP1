@@ -11,11 +11,11 @@ typedef struct fifo_t {
 } fifo_t;
 
 /**
- *
- * @param fifo
+ * zamienia wskaźnik do fifo na fifo->next
+ * @param fifo wskaźnik do wskaźnika do fifo
  * @return wartość zdjętą z fifo
  */
-void* pop(fifo_t* fifo);
+void* pop(fifo_t* *fifo);
 
 /**
  *

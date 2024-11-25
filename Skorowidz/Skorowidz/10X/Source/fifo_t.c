@@ -34,6 +34,16 @@ void push(fifo_t* fifo, void* element) {
         fifo = fifo->next;
     }
 
-    fifo->next = malloc(sizeof(fifo_t));
-    fifo->next->currentValue = element;
+    fifo->next = malloc(sizeof(fifo_t*));
+    fifo->currentValue = element;
+}
+
+void* pop(fifo_t* *fifo) {
+    fifo_t* temp = *fifo;
+    void* val = temp->currentValue;
+
+    *fifo = temp->next;
+    free(temp);
+
+    return val;
 }
