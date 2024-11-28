@@ -1,43 +1,51 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include "Skorowidz/Skorowidz/10X/Headers/fifo_t.h"
+#include "Skorowidz/Skorowidz/10X/Headers/load_file.h"
+#include "Skorowidz/Skorowidz/10X/Headers/search.h"
 
-
-int main() {
-    fifo_t* fifo = init("asasddasdsa");
-
-    push(fifo, "1");
-    push(fifo, "asd");
-    push(fifo, "def");
-
-    void* foundElem = find(fifo, "asd");
-    printf("%p\n", foundElem);
-//    push(fifo, "1");
-//    push(fifo, "2");
-//    push(fifo, "3");
-//    push(fifo, "4");
-//    push(fifo, "5");
-
-
-//    while(fifo->next != NULL) {
-//        void* str = fifo->currentValue;
-//        printf("%s ", str);
-//        fifo = fifo->next;
-//    }
-//    printf("\n");
-//    char* str = fifo->currentValue;
-//    printf("Wartość początkowa:\t%s\n", str);
-//    printf("Długość:\t%d\n\n", length(NULL));
-//    pop(NULL);
-//    pop(&fifo);
-//    pop(&fifo);
-//    printf("Długość:\t%d\n\n", length(fifo));
-
-//    char* removedValue = pop(&fifo);
-//    printf("Zdjeta wartosc:\t%s\n", removedValue);
+int main(int argc, char** argv) {
+//    Argumenty:
+//    "nazwa_pliku" slowo1 slowo2 ...
+//    nazwa pliku - skąd czytamy słowa
+//    slowo1,2 - słowa których szukamy
 //
-//    str = (char*) fifo->currentValue;
-//    printf("Wartosc początkowa po zdjęciu:\t%s\n", str);
-//    printf("Długość po zdjęciu:\t%d", length(fifo));
 
+    if(argc < 3) {
+        fprintf(stderr, "Nie wystarczająca liczba argumentów!");
+        //TODO: jakiś help
+        return -1;
+    }
+
+    FILE* file = fopen(argv[1], "r");
+
+    if(file == NULL) {
+        fprintf(stderr, "Nie udało się otworzyć pliku!");
+        return -2;
+    }
+
+
+//    fifo_t* fifo = get_words(file);
+//    print_fifo(fifo->next);
+//    fifo_t* temp;
+
+    fifo_t* fifo = get_words(file);
+    kw_t** keywords = find_keyword(fifo->next, argv + 2, argc - 2);
+
+    for(int i = 0; i < argc - 2; i++)
+        printKw(*(keywords + i));
+
+//    keywords;
+
+//    kw_t *test = malloc(sizeof(kw_t*));
+//    for(int i = 2; i < argc; i++) {
+//
+//        print_fifo(temp);
+//        test = find_keyword(temp->next, argv[i]);
+//        printKw(test);
+//    }
+
+//    freeKw(&test);
+    //TODO: free fifo
+    return 0;
 }

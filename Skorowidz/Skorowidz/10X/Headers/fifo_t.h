@@ -49,4 +49,6 @@ fifo_t* init(void* value);
 void* find(fifo_t* fifo, void* pattern);
 void print_fifo(fifo_t* que);
 
+void print_fifo(fifo_t* fifo);
+
 #endif //SKOROWIDZ_JIMP1_FIFO_T_H
