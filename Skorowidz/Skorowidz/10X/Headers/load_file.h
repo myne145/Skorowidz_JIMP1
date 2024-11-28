@@ -8,6 +8,8 @@
 #include <stdio.h>
 #include "fifo_t.h"
 
+#define WORD_LENGTH 200 //ilość znaków w linijce
+
 typedef struct word {
     char* word;
     int line;

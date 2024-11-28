@@ -3,15 +3,11 @@
 //
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 #include "../Headers/fifo_t.h"
-#include "../Headers/kw_t.h"
 #include "../Headers/load_file.h"
 
-#define BUFSIZE 8192 //ilość bajtów na linijkę
-
 fifo_t* get_words(FILE* in) {
-    char* buffer = malloc(BUFSIZE * sizeof(char ));
+    char* buffer = malloc(WORD_LENGTH * sizeof(char ));
 
     fifo_t* fifo = init("");
 
@@ -30,11 +26,15 @@ fifo_t* get_words(FILE* in) {
             if(c == '\n')
                 line++;
 
-            buffer = calloc(BUFSIZE, sizeof(char));
+            buffer = calloc(WORD_LENGTH, sizeof(char));
             index = 0;
             continue;
         }
 
+        if(index >= WORD_LENGTH) {
+            fprintf(stderr, "Nie można dodać słowa - zawiera więcej niż %d znaków!\n", WORD_LENGTH);
+            continue;
+        }
         buffer[index] = c;
         index++;
     }

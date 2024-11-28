@@ -14,7 +14,7 @@
  * @param keyword szukane słowo
  * @return struktura keyword z informacjami o słowie
  */
-kw_t* find_keyword(fifo_t* fifo, const char* word);
+kw_t** find_keyword(fifo_t* fifo, char** word, int n);
 
 
 
