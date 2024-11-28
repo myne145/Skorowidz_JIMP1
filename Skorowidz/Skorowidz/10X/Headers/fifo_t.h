@@ -47,6 +47,7 @@ fifo_t* init(void* value);
  * @return wskaźnik do elementu, jeśli nie ma takiego to NULL
  */
 void* find(fifo_t* fifo, void* pattern);
+void print_fifo(fifo_t* que);
 
 void print_fifo(fifo_t* fifo);
 

@@ -3,7 +3,7 @@
 //
 #include <stdlib.h>
 #include <stdio.h>
-
+#include "../Headers/kw_t.h"
 #include "../Headers/fifo_t.h"
 #include "../Headers/load_file.h"
 
@@ -92,10 +92,34 @@ void* find(fifo_t* fifo, void* pattern) {
     return NULL;
 }
 
-void print_fifo(fifo_t* fifo) {
+
+void print_fifo_word_t(fifo_t* fifo) {
     while(fifo->next != NULL) {
         word_t* s = (word_t*) fifo->currentValue;
         printf("%s\t%d\n", s->word, s->line);
         fifo = fifo->next;
+    }
+}
+
+void print_fifo_kw(fifo_t* que){
+    while(que!=NULL){
+        if(que->currentValue != NULL){
+            kw_t* temp = (kw_t*)que->currentValue;
+            char* s1 = temp->keyword;
+            printf("%s \n",s1);
+            temp = NULL;
+            s1 = NULL;
+            if(que->next!=NULL){
+                que = que->next;
+            }
+        }else{
+            break;
+        }
+    }
+}
+
+void freefifo(fifo_t* que){
+    while(que){
+        pop(&que);
     }
 }
