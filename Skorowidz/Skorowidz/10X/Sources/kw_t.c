@@ -90,9 +90,9 @@ void addNewLineToKw(kw_t* kw,int newline){ //funckja dodająca do konretnego Key
 
 void printKw(kw_t* kw){
     if(kw == NULL) return;
-    printf("KeyWord: \"%s\" noa: %d lines: ",kw->keyword,kw->numberOfApperance);
+    printf("Keyword: \"%s\" found in %d lines - ",kw->keyword,kw->numberOfApperance);
     for(int i = 0; i<kw->linesSize; i++){
-        printf("%d ",kw->lines[i]);
+        printf("%d, ",kw->lines[i]);
     }
     printf("\n");
 }
