@@ -9,7 +9,7 @@
 #include "kw_t.h"
 
 // Deklaracje funkcji
-int compare(const kw_t* kw1,const kw_t* kw2);
+int compare(const void* kw1,const void* kw2);
 
 #endif // COMPARE_H
 
