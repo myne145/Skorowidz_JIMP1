@@ -5,7 +5,6 @@
 //  Created by Oskar Przybylski on 22/11/2024.
 //
 #include "../Headers/compare.h"
-#include <stdio.h>
 
 int compare(const void* kw1,const void* kw2){
     

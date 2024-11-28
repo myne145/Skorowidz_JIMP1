@@ -76,23 +76,6 @@ void* pop(fifo_t* *fifo) {
     return val;
 }
 
-void* find(fifo_t* fifo, void* pattern) {
-    if(fifo == NULL) {
-        fprintf(stderr, "Nie można znaleźć wartości - niezaincjalizowana zmienna fifo.\n");
-        return NULL;
-    }
-
-    while(fifo->next != NULL) {
-        if(fifo->currentValue == pattern) {
-            return fifo->currentValue;
-        }
-
-        fifo = fifo->next;
-    }
-    return NULL;
-}
-
-
 void print_fifo_word_t(fifo_t* fifo) {
     while(fifo->next != NULL) {
         word_t* s = (word_t*) fifo->currentValue;
@@ -118,7 +101,7 @@ void print_fifo_kw(fifo_t* que){
     }
 }
 
-void freefifo(fifo_t* que){
+void free_fifo(fifo_t* que) {
     while(que){
         pop(&que);
     }

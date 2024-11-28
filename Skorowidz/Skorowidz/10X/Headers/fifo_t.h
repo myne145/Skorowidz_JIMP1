@@ -40,15 +40,11 @@ int length(fifo_t* fifo);
  */
 fifo_t* init(void* value);
 
-/**
- * wyszukuje DOKŁADNĄ wartość w kolejce
- * @param fifo do przeszukania
- * @param pattern do znalezienia
- * @return wskaźnik do elementu, jeśli nie ma takiego to NULL
- */
-void* find(fifo_t* fifo, void* pattern);
-void print_fifo(fifo_t* que);
 
-void print_fifo(fifo_t* fifo);
+void print_fifo_word_t(fifo_t* fifo);
+
+void print_fifo_kw(fifo_t* que);
+
+void free_fifo(fifo_t* que);
 
 #endif //SKOROWIDZ_JIMP1_FIFO_T_H

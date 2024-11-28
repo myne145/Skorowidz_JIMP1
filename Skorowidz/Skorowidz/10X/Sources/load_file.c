@@ -39,5 +39,6 @@ fifo_t* get_words(FILE* in) {
         index++;
     }
 
+    free(buffer);
     return fifo;
 }

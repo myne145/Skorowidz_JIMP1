@@ -6,7 +6,6 @@
 #include "../Headers/load_file.h"
 
 #include <stdlib.h>
-#include <stdio.h>
 #include <string.h>
 
 kw_t** find_keyword(fifo_t* fifo, char** word, int n) {
@@ -15,15 +14,15 @@ kw_t** find_keyword(fifo_t* fifo, char** word, int n) {
         *(keywords + i) = keyWordInit(*(word + i));
     }
 
-//    kw_t* keyword = keyWordInit(word);
-//    word_t* wordAndNumber;
+    word_t* wordAndNumber;
     while(fifo->next != NULL) {
-        word_t* wordAndNumber = pop(&fifo);
+        wordAndNumber = pop(&fifo);
         for(int i = 0; i < n; i++) {
             if (strcmp(*(word + i), wordAndNumber->word) == 0) {
                 addNewLineToKw(*(keywords + i), wordAndNumber->line);
             }
         }
     }
+    free(wordAndNumber);
     return keywords;
 }
