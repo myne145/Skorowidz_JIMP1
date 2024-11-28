@@ -50,7 +50,7 @@ fifo_t* listToFifo(kw_t** list,int size){
     return NULL;
 }
 
-fifo_t* sortFifo(fifo_t* que){
+fifo_t* sortFifo(fifo_t* que) {
 
     kw_t** list = fifoToList(que); //mempruf
 

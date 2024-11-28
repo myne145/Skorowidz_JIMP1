@@ -14,4 +14,5 @@ add_executable(Skorowidz_JIMP1 skorowidz.c
         Skorowidz/Skorowidz/10X/Sources/sort.c
         Skorowidz/Skorowidz/10X/Headers/compare.h
         Skorowidz/Skorowidz/10X/Sources/compare.c
+        Skorowidz/Skorowidz/10X/Headers/sort.h
 )

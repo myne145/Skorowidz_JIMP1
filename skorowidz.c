@@ -3,6 +3,7 @@
 #include "Skorowidz/Skorowidz/10X/Headers/fifo_t.h"
 #include "Skorowidz/Skorowidz/10X/Headers/load_file.h"
 #include "Skorowidz/Skorowidz/10X/Headers/search.h"
+#include "Skorowidz/Skorowidz/10X/Headers/sort.h"
 
 int main(int argc, char** argv) {
     if (argc < 3) {
@@ -22,6 +23,9 @@ int main(int argc, char** argv) {
 
 
     fifo_t *fifo = get_words(file);
+//    fifo_t * sortedFifo = sortFifo(fifo); TODO: segfault w tej funkcji
+
+
     kw_t **keywords = find_keyword(fifo->next, argv + 2, argc - 2);
 
     for (int i = 0; i < argc - 2; i++) {
