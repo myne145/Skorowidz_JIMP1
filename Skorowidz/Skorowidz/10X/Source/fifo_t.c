@@ -5,6 +5,7 @@
 #include <stdio.h>
 
 #include "../Headers/fifo_t.h"
+#include "../Headers/load_file.h"
 
 #define QUEUE_SIZE 5000 //maksymalna ilość elementów w kolejce
 
@@ -93,8 +94,8 @@ void* find(fifo_t* fifo, void* pattern) {
 
 void print_fifo(fifo_t* fifo) {
     while(fifo->next != NULL) {
-        char* s = (char*) fifo->currentValue;
-        printf("%s\n", s);
+        word_t* s = (word_t*) fifo->currentValue;
+        printf("%s\t%d\n", s->word, s->line);
         fifo = fifo->next;
     }
 }

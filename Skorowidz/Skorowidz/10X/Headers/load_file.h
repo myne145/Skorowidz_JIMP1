@@ -8,8 +8,12 @@
 #include <stdio.h>
 #include "fifo_t.h"
 
+typedef struct word {
+    char* word;
+    int line;
+} word_t;
 
-fifo_t get_words(FILE* in);
+fifo_t* get_words(FILE* in);
 
 
 

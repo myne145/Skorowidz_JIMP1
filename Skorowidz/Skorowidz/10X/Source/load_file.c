@@ -6,29 +6,38 @@
 #include <string.h>
 #include "../Headers/fifo_t.h"
 #include "../Headers/kw_t.h"
+#include "../Headers/load_file.h"
 
 #define BUFSIZE 8192 //ilość bajtów na linijkę
 
-fifo_t get_words(FILE* in) {
+fifo_t* get_words(FILE* in) {
     char* buffer = malloc(BUFSIZE * sizeof(char ));
 
-    fifo_t* fifo = init("A");
+    fifo_t* fifo = init("");
 
 
     int index = 0;
     char c;
+    int line = 1;
     while((c = fgetc(in)) != EOF) {
-        if(c == ' ' || c == '\n') {
-            push(fifo, buffer);
-            buffer = calloc(sizeof(char) * BUFSIZE, sizeof(char) * BUFSIZE);
+        if(c == ' ' || c == '\n' || c == ',' || c == '.') {
+            word_t* word1 = malloc(sizeof(word_t*));
+            word1->line = line;
+            word1->word = buffer;
+
+            push(fifo, word1);
+
+            if(c == '\n')
+                line++;
+
+            buffer = calloc(BUFSIZE, sizeof(char));
             index = 0;
             continue;
         }
+
         buffer[index] = c;
         index++;
     }
 
-    print_fifo(fifo);
-
-
+    return fifo;
 }
