@@ -6,4 +6,5 @@ set(CMAKE_C_STANDARD 11)
 add_executable(Skorowidz_JIMP1 skorowidz.c
         Skorowidz/Skorowidz/10X/Source/fifo_t.c
         Skorowidz/Skorowidz/10X/Source/load_file.c
+        Skorowidz/Skorowidz/10X/Headers/load_file.h
 )

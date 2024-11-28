@@ -90,3 +90,11 @@ void* find(fifo_t* fifo, void* pattern) {
     }
     return NULL;
 }
+
+void print_fifo(fifo_t* fifo) {
+    while(fifo->next != NULL) {
+        char* s = (char*) fifo->currentValue;
+        printf("%s\n", s);
+        fifo = fifo->next;
+    }
+}
