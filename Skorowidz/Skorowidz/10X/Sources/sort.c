@@ -8,6 +8,7 @@
 #include "../Headers/compare.h"
 #include "../Headers/fifo_t.h"
 #include "../Headers/kw_t.h"
+#include "../Headers/compare.h"
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -50,41 +51,15 @@ fifo_t* listToFifo(kw_t** list,int size){
 }
 
 fifo_t* sortFifo(fifo_t* que){
-    
+
     kw_t** list = fifoToList(que); //mempruf
-        
+
     qsort(list, length(que), sizeof(kw_t*), compare);
-    
+
     fifo_t* sque = listToFifo(list, length(que));
-    
+
     free(que);
     free(list);
-    
+
     return sque;
-}
-
-
-int main(void){
-    kw_t* kw1 = keyWordInit("Keyword1");
-    kw_t* kw2 = keyWordInit("Keyword2");
-    kw_t* kw3 = keyWordInit("Keyword3");
-    kw_t* kw4 = keyWordInit("Keyword4");
-    
-    kw1->numberOfApperance = 1;
-    kw2->numberOfApperance = 2;
-    kw3->numberOfApperance = 3;
-    kw4->numberOfApperance = 4;
- 
-    fifo_t* que = init(kw1);
-    push(que, kw2);
-    push(que, kw3);
-    push(que, kw4);
-    
-    fifo_t* sque = sortFifo(que);
-    
-    print_fifo(sque);
-    
-    while (1){
-        
-    }
 }
