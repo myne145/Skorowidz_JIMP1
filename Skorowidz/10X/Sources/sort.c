@@ -50,11 +50,13 @@ fifo_t* listToFifo(kw_t** list,int size){
     return NULL;
 }
 
-fifo_t* sortFifo(fifo_t* que) {
+fifo_t* sortFifo(fifo_t* que, int mode) {
 
     kw_t** list = fifoToList(que);
 
-    qsort(list, length(que), sizeof(kw_t*), compare);
+    void* comparator = mode == 0 ? compare : compare_alphabet;
+
+    qsort(list, length(que), sizeof(kw_t*), comparator);
 
     fifo_t* sque = listToFifo(list, length(que));
 

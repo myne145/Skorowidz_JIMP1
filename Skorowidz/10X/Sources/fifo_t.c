@@ -84,9 +84,9 @@ void print_fifo_word_t(fifo_t* fifo) {
     }
 }
 
-void print_fifo_kw(fifo_t* que){
-    while(que!=NULL){
-        if(que->currentValue != NULL){
+void print_fifo_kw(fifo_t* que) {
+    while(que->next != NULL) {
+        if(que->currentValue != NULL) {
             kw_t* temp = (kw_t*)que->currentValue;
             printKw(temp);
             temp = NULL;

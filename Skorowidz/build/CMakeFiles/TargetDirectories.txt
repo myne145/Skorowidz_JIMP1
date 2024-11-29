@@ -1,3 +1,0 @@
-/Users/oskar/Documents/XCODE-C/Skorowidz_JIMP1/Skorowidz/Skorowidz_JIMP1-master/build/CMakeFiles/skorowidz.dir
-/Users/oskar/Documents/XCODE-C/Skorowidz_JIMP1/Skorowidz/Skorowidz_JIMP1-master/build/CMakeFiles/edit_cache.dir
-/Users/oskar/Documents/XCODE-C/Skorowidz_JIMP1/Skorowidz/Skorowidz_JIMP1-master/build/CMakeFiles/rebuild_cache.dir
