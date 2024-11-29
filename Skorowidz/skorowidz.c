@@ -1,10 +1,10 @@
 #include <stdio.h>
 
-#include "Skorowidz/Skorowidz/10X/Headers/fifo_t.h"
-#include "Skorowidz/Skorowidz/10X/Headers/load_file.h"
-#include "Skorowidz/Skorowidz/10X/Headers/search.h"
-#include "Skorowidz/Skorowidz/10X/Headers/sort.h"
-#include "Skorowidz/Skorowidz/10X/Headers/kw_t.h"
+#include "Skorowidz/10X/Headers/fifo_t.h"
+#include "Skorowidz/10X/Headers/load_file.h"
+#include "Skorowidz/10X/Headers/search.h"
+#include "Skorowidz/10X/Headers/sort.h"
+#include "Skorowidz/10X/Headers/kw_t.h"
 
 
 int main(int argc, char** argv) {
