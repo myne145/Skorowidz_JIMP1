@@ -9,7 +9,7 @@
 fifo_t* get_words(FILE* in) {
     char* buffer = malloc(WORD_LENGTH * sizeof(char ));
 
-    fifo_t* fifo = init("");
+    fifo_t* fifo = init(NULL);
 
 
     int index = 0;
@@ -38,6 +38,8 @@ fifo_t* get_words(FILE* in) {
         buffer[index] = c;
         index++;
     }
+
+    pop(&fifo);
 
     free(buffer);
     return fifo;

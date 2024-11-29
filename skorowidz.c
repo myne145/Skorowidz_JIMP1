@@ -31,14 +31,12 @@ int main(int argc, char** argv) {
         fprintf(stderr, "Invalid mode value - must be 0 or 1");
         return -3;
     }
+    int size = argc-3;
 
     fifo_t *fifo = get_words(file);
-    word_t* word = (word_t*)fifo->next->currentValue;
-    //print_fifo_word_t(fifo->next);
+    kw_t **keywords = find_keyword(fifo, argv + 3, size);
 
 
-    kw_t **keywords = find_keyword(fifo->next, argv + 3, argc - 3);
-    int size = argc-3;
 
     fifo_t* kwlist = listToFifo(keywords,size);
     fifo_t* sortedlist = sortFifo(kwlist, mode);
