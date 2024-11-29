@@ -11,6 +11,8 @@
 // Deklaracje funkcji
 int compare(const void* kw1,const void* kw2);
 
+int compare_alphabet(const void* kw1, const void* kw2);
+
 #endif // COMPARE_H
 
 

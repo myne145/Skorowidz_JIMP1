@@ -54,7 +54,7 @@ fifo_t* sortFifo(fifo_t* que) {
 
     kw_t** list = fifoToList(que);
 
-    qsort(list, length(que), sizeof(kw_t*), compare);
+    qsort(list, length(que), sizeof(kw_t*), compare_alphabet);
 
     fifo_t* sque = listToFifo(list, length(que));
 
