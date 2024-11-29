@@ -42,12 +42,6 @@ int main(int argc, char** argv) {
     fifo_t* sortedlist = sortFifo(kwlist);
     
     print_fifo_kw(sortedlist);
-    
-
-    for(int i = 0; i < length(sortedlist); i++ ){
-        printKw((kw_t*)sortedlist->currentValue);
-        sortedlist = sortedlist->next;
-    }
 
     //fifo zostało już wyczyszczone przez funkcję find_keyword, stąd brak free_fifo
     return 0;
