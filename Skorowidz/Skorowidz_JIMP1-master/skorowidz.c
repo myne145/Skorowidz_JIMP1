@@ -4,6 +4,8 @@
 #include "Skorowidz/Skorowidz/10X/Headers/load_file.h"
 #include "Skorowidz/Skorowidz/10X/Headers/search.h"
 #include "Skorowidz/Skorowidz/10X/Headers/sort.h"
+#include "Skorowidz/Skorowidz/10X/Headers/kw_t.h"
+
 
 int main(int argc, char** argv) {
     if (argc < 3) {
@@ -17,20 +19,34 @@ int main(int argc, char** argv) {
     FILE *file = fopen(argv[1], "r");
 
     if (file == NULL) {
-        fprintf(stderr, "Failed to open the file!");
+        fprintf(stderr, "Failed to open the file! \n");
         return -2;
     }
 
 
     fifo_t *fifo = get_words(file);
-//    fifo_t * sortedFifo = sortFifo(fifo); TODO: segfault w tej funkcji
+    word_t* word = (word_t*)fifo->next->currentValue;
+    //print_fifo_word_t(fifo->next);
 
 
     kw_t **keywords = find_keyword(fifo->next, argv + 2, argc - 2);
+    int size = argc-2;
+    
+    /*
+    for(int i = 0; i < size+1; i++){
+        printKw(keywords[i]);
+    }
+    */
+    
+    fifo_t* kwlist = listToFifo(keywords,size);
+    fifo_t* sortedlist = sortFifo(kwlist);
+    
+    print_fifo_kw(sortedlist);
+    
 
-    for (int i = 0; i < argc - 2; i++) {
-        printKw(*(keywords + i));
-        freeKw((keywords + i));
+    for(int i = 0; i < length(sortedlist); i++ ){
+        printKw((kw_t*)sortedlist->currentValue);
+        sortedlist = sortedlist->next;
     }
 
     //fifo zostało już wyczyszczone przez funkcję find_keyword, stąd brak free_fifo

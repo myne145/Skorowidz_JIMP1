@@ -13,6 +13,7 @@
  * @return fifo posortowane
  */
 fifo_t* sortFifo(fifo_t* que);
+fifo_t* listToFifo(kw_t** list,int size);
 
 
 #endif //SKOROWIDZ_JIMP1_SORT_H

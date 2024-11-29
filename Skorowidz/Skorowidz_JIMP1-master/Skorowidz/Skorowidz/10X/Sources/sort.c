@@ -52,7 +52,7 @@ fifo_t* listToFifo(kw_t** list,int size){
 
 fifo_t* sortFifo(fifo_t* que) {
 
-    kw_t** list = fifoToList(que); //mempruf
+    kw_t** list = fifoToList(que);
 
     qsort(list, length(que), sizeof(kw_t*), compare);
 

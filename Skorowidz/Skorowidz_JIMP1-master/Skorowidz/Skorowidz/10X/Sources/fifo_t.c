@@ -77,9 +77,9 @@ void* pop(fifo_t* *fifo) {
 }
 
 void print_fifo_word_t(fifo_t* fifo) {
-    while(fifo->next != NULL) {
-        word_t* s = (word_t*) fifo->currentValue;
-        printf("%s\t%d\n", s->word, s->line);
+    while(fifo != NULL && fifo->currentValue != NULL){
+        word_t* word = (word_t*)fifo->currentValue;
+        printf("%s \n",word->word);
         fifo = fifo->next;
     }
 }
