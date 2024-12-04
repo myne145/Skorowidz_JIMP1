@@ -1,14 +1,14 @@
 //
 //  kw_t_test.c
-//  Skorowidz1
+//  Skorowidz
 //
 //  Created by Oskar Przybylski on 22/11/2024.
 //
-#include "../Headers/kw_t.h"
+#include "kw_t.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "../../../Skorowidz1/Skorowidz_JIMP1-master/Skorowidz/Skorowidz/10X/Headers/test.h"
+#include "test.h"
 
 int main(void){
     char* str1 = "String1";

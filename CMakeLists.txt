@@ -5,7 +5,7 @@ project(Skorowidz_JIMP1 C)
 set(CMAKE_C_STANDARD 11)
 
 # Dodanie katalogu z plikami nagłówkowymi
-include_directories(Skorowidz/Skorowidz/10X/Headers)
+include_directories(Skorowidz/10X/Headers)
 
 # Lista plików źródłowych
 set(SOURCES

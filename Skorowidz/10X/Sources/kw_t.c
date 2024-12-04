@@ -1,6 +1,6 @@
 //
 //  kw_t.c
-//  Skorowidz1
+//  Skorowidz
 //
 //  Created by Oskar Przybylski on 22/11/2024.
 //

@@ -10,9 +10,11 @@
 /**
  * sortuje fifo bazując na ilośći wystąpień słowa tylko dla kw_t
  * @param que fifo
+ * @param mode po czym chcemy sortować 1 po ASCI, 0 po ilości wystąpień
  * @return fifo posortowane
  */
-fifo_t* sortFifo(fifo_t* que);
+fifo_t* sortFifo(fifo_t* que, int mode);
+
 fifo_t* listToFifo(kw_t** list,int size);
 
 

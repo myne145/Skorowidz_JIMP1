@@ -1,6 +1,6 @@
 //
 //  fifo_t.c
-//  Skorowidz1
+//  Skorowidz
 //
 //  Created by Oskar Przybylski on 26/11/2024.
 //

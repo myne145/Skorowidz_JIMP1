@@ -1,6 +1,6 @@
 //
 //  compare.h
-//  Skorowidz1
+//  Skorowidz
 //
 //  Created by Oskar Przybylski on 22/11/2024.
 //
@@ -10,6 +10,8 @@
 
 // Deklaracje funkcji
 int compare(const void* kw1,const void* kw2);
+
+int compare_alphabet(const void* kw1, const void* kw2);
 
 #endif // COMPARE_H
 
