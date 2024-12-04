@@ -17,7 +17,8 @@ fifo_t* init(void* value) {
     }
 
     fifo->currentValue = value;
-    fifo->next = malloc(sizeof(fifo_t));
+    fifo->next = NULL;
+
     return fifo;
 }
 
@@ -83,6 +84,7 @@ void print_fifo_word_t(fifo_t* fifo) {
         fifo = fifo->next;
     }
 }
+
 
 void print_fifo_kw(fifo_t* que) {
     while(que->next != NULL) {

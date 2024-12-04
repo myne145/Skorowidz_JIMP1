@@ -14,6 +14,7 @@
  * @return fifo posortowane
  */
 fifo_t* sortFifo(fifo_t* que, int mode);
+
 fifo_t* listToFifo(kw_t** list,int size);
 
 

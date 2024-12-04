@@ -26,6 +26,7 @@ int main(int argc, char** argv) {
         return -2;
     }
 
+
     int mode = atoi(argv[2]);
     if(mode != 0 && mode != 1) {
         fprintf(stderr, "Invalid mode value - must be 0 or 1");

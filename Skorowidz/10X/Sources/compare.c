@@ -4,10 +4,11 @@
 //
 //  Created by Oskar Przybylski on 22/11/2024.
 //
-#include "../Headers/compare.h"
-
 #include <stdio.h>
 #include <string.h>
+
+#include "../Headers/compare.h"
+
 
 int word_asci_value(char* word) {
     int val1 = 0;
