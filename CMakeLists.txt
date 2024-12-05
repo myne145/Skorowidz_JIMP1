@@ -9,14 +9,16 @@ include_directories(Skorowidz/10X/Headers)
 
 # Lista plików źródłowych
 set(SOURCES
-        Skorowidz/10X/Sources/fifo_t.c
-        Skorowidz/10X/Sources/load_file.c
-        Skorowidz/10X/Sources/search.c
-        Skorowidz/10X/Sources/kw_t.c
-        Skorowidz/10X/Sources/sort.c
-        Skorowidz/10X/Sources/compare.c
-        skorowidz.c  # Główna funkcja programu
+        Sources/fifo_t.c
+        Sources/load_file.c
+        Sources/search.c
+        Sources/kw_t.c
+        Sources/sort.c
+        Sources/compare.c
+        skorowidz.c
+        Sources/compare.c  # Główna funkcja programu
 )
 
 # Tworzenie pliku wykonywalnego
-add_executable(skorowidz ${SOURCES})
+add_executable(skorowidz ${SOURCES}
+        Sources/compare.c)
