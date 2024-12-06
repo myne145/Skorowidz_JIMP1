@@ -9,6 +9,8 @@
 
 
 int main(int argc, char** argv) {
+    //W pliku README.MD znajduje się notatka na temat działania/niedziałania programu na różnych systemach
+
     if (argc < 4) {
             fprintf(stderr, "Not enough arguments!\n"
                     "Program arguments:\n"
